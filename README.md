@@ -17,13 +17,18 @@ revised_by: wfordwfu
 
 ## Getting Started
 
+### Access Jupyter Lab
+
+- Make sure server is running `jupyter server list`
+- From shell run `./jupyter.sh` or go to [http://localhost:8888/lab](http://localhost:8888/lab)
+
 ### Tools to install locally
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) - Ideally install from Software Center
 - [VS Code](https://code.visualstudio.com/download)
 - [VS Code Remote Containers Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
-## Useful Docker commands to know
+## Useful Docker commands to know (Run outside VS Code)
 
 These are useful if you JupyterLab instance has locked up
 

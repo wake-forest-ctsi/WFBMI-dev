@@ -5,7 +5,7 @@ USER root
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && \
     apt-get -y install --no-install-recommends apt-utils g++ \
-    dialog libaio1 libssl-dev \
+    dialog libaio1 libssl-dev sudo \
     apt-transport-https ca-certificates
 
 COPY certificates/* /usr/local/share/ca-certificates/
@@ -21,7 +21,7 @@ COPY library-scripts/common-debian.sh /tmp/library-scripts/
 
 RUN apt-get update && \
     groupadd jovyan && \
-    usermod -g jovyan -a -G users jovyan && \
+    usermod -g jovyan -aG users,sudo jovyan && \
     bash /tmp/library-scripts/common-debian.sh && \
     apt-get clean -y && \
     rm -rf /var/lib/apt/lists/* /tmp/library-scripts
