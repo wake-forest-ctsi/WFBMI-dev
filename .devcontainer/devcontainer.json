@@ -1,0 +1,91 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.234.0/containers/typescript-node
+{
+	"name": "WFBMI Dev Environment",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"mounts": [
+		"source=${localWorkspaceFolder},target=/home/jovyan/work,type=bind,consistency=cached"
+	],
+	"runArgs": ["--init"],
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": {
+				// zsh settings
+				"terminal.integrated.profiles.linux": {
+					"zsh": {
+						"path": "/usr/bin/zsh"
+					}
+				},
+				"terminal.integrated.defaultProfile.linux": "zsh",
+				// python settings
+				"python.disableInstallationCheck": true,
+				"python.defaultInterpreterPath": "/opt/conda/bin/python",
+				"python.formatting.provider": "black",
+				"python.linting.enabled": true,
+				"python.linting.pylintEnabled": true,
+				// r settings
+				"r.alwaysUseActiveTerminal": true,
+				"r.bracketedPaste": true,
+				"r.sessionWatcher": true,
+				"r.debugger.timeouts.startup": 8000,
+				// general settings
+				"editor.wordWrap": "on",
+				"editor.tabSize": 2,
+				"path-autocomplete.pathMappings": {
+						"/": "/",
+						"./": "${folder}"
+				},
+				"editor.bracketPairColorization.enabled": true,
+				"editor.guides.bracketPairs": "active"
+			},
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"donjayamanne.githistory",
+				"yzhang.markdown-all-in-one",
+				"davidanson.vscode-markdownlint",
+				"vscode-icons-team.vscode-icons",
+				"piotrpalarz.vscode-gitignore-generator",
+				"oderwat.indent-rainbow",
+				"mutantdino.resourcemonitor",
+				"ms-python.python",
+				"REditorSupport.r",
+				"RDebugger.r-debugger",
+				"ms-toolsai.jupyter"
+			]
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [8888],
+	"portsAttributes": {
+		"8888": {
+			"label": "Jupyter",
+			"requireLocalPort": true,
+			"onAutoForward": "ignore"
+		}
+	},
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "bash .devcontainer/postCreateCommand.sh",
+	// Use 'postStartCommand' to run commands after the container is started each time.
+	//"postStartCommand": "bash .devcontainer/postStartCommand.sh",
+	//"overrideCommand": false,
+	"postAttachCommand": "JUPYTER_ENABLE_LAB=yes GRANT_SUDO=yes start.sh jupyter lab --LabApp.token=''",
+
+	"features": {
+        "git": {
+            //https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/git-from-src.md
+            "version": "latest",
+            "ppa": true
+        },
+		"github-cli": {
+            //https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/github-cli.md
+            "version":"latest"
+        }
+	},
+	"remoteUser": "jovyan"
+}
