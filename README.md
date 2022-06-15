@@ -1,9 +1,11 @@
 ---
-date_revised: 2022/06/10
+date_revised: 2022/06/15
 revised_by: wfordwfu
 ---
 
 # WFBMI Jupyter Lab Devcontainer
+
+A Jupyter devcontainer datascience solution based on the [Jupyter/Docker-Stacks](https://github.com/jupyter/docker-stacks) solution.
 
 - [WFBMI Jupyter Lab Devcontainer](#wfbmi-jupyter-lab-devcontainer)
   - [Getting Started](#getting-started)
