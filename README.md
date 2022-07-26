@@ -98,3 +98,8 @@ There's lots more to explore about Jupyter:
 - [Devcontainer Spec](https://containers.dev)
 - [Based on the Microsoft provided mod of datascience jupyter stack](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/jupyter-datascience-notebooks)
 - [Devcontainer/CLI](https://github.com/devcontainers/cli)
+
+## Feature Ideas
+
+- [xeus-sqlite](https://xeus-sqlite.readthedocs.io/en/latest/index.html)
+  - `conda install xeus-sqlite jupyterlab -c conda-forge`

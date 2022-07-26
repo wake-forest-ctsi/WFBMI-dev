@@ -40,7 +40,10 @@
 						"./": "${folder}"
 				},
 				"editor.bracketPairColorization.enabled": true,
-				"editor.guides.bracketPairs": "active"
+				"editor.guides.bracketPairs": "active",
+				"workbench.iconTheme": "vscode-icons",
+				"editor.fontFamily": "Consolas, 'Courier New', monospace, 'Hack Nerd Font Mono'",
+				"terminal.integrated.fontFamily": "Consolas, 'Hack Nerd Font Mono'"
 			},
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
